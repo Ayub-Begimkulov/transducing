@@ -9,7 +9,7 @@ describe("chain", () => {
     const original = [1, 2, 3];
     const result = chain(original).toArray();
     expect(original).toEqual(result);
-    // test that it's not a reference to the same array
+    // make sure that it's not a reference to the same array
     expect(original).not.toBe(result);
   });
 
