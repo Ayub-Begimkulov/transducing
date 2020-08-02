@@ -1,3 +1,7 @@
+import compose from "./compose";
+import { pushCombiner, flatPushCombiner, addCombiner } from "./combiners";
+import { isArray, id } from "./utils";
+
 export function chain(arr) {
   return new Chain(arr);
 }
@@ -66,47 +70,3 @@ const mapReducer = mapper => combiner => (acc, c) => {
 const filterReducer = predicate => combiner => (acc, c) => {
   return predicate(c) ? combiner(acc, c) : acc;
 };
-
-function compose(...args) {
-  switch (args.length) {
-    case 0:
-      return;
-    case 1:
-      return args[0];
-    default:
-      return args.reduce(composeReducer);
-  }
-}
-
-function composeReducer(a, b) {
-  return function () {
-    return a.call(this, b.apply(this, arguments));
-  };
-}
-
-function pushCombiner(a, b) {
-  a.push(b);
-  return a;
-}
-
-function flatPushCombiner(a, b) {
-  if (isArray(b)) {
-    a.push(...b);
-  } else {
-    a.push(b);
-  }
-  return a;
-}
-
-function addCombiner(a, b) {
-  a.add(b);
-  return a;
-}
-
-function isArray(val) {
-  return Array.isArray(val);
-}
-
-function id(v) {
-  return v;
-}
