@@ -44,11 +44,16 @@ describe("chain", () => {
   });
 
   it("flatMap", () => {
-    const original = [1, 2, 3].map(v => [v]);
-    const mapper = (v: number[]) => v;
-    const result = chain(original).flatMap(mapper).toArray();
-    const expected = original.flatMap(mapper);
+    const original = [1, 2, 3];
+    const nested = original.map(v => [v]);
+    const mapper = <T>(v: T) => v;
+    // with nested arrays
+    let result = chain(nested).flatMap(mapper).toArray();
+    let expected = nested.flatMap(mapper);
     expect(result).toEqual(expected);
+    // with flat arrays
+    result = chain(original).flatMap(mapper).toArray();
+    expected = original.flatMap(mapper);
   });
 
   it("combination", () => {

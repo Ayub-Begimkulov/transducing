@@ -53,18 +53,18 @@ function transduce(arr, transducer, combiner, to) {
   return arr.reduce(transducer(combiner), to);
 }
 
+const mapReducer = mapper => combiner => (acc, c) => {
+  return combiner(acc, mapper(c));
+};
+
 const flatMapReducer = mapper => combiner => (acc, c) => {
   const value = mapper(c);
   if (isArray(value)) {
     value.forEach(v => combiner(acc, v));
   } else {
-    combiner(acc, c);
+    combiner(acc, value);
   }
   return acc;
-};
-
-const mapReducer = mapper => combiner => (acc, c) => {
-  return combiner(acc, mapper(c));
 };
 
 const filterReducer = predicate => combiner => (acc, c) => {

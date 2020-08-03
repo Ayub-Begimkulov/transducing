@@ -8,7 +8,7 @@ declare class Chain<T> {
   filter<S extends T>(cb: (value: T) => value is S): Chain<S>;
   filter(cb: (value: T) => unknown): Chain<T>;
 
-  flatMap<U>(cb: (value: T) => U): Chain<FlatArray<U[], 1>[]>;
+  flatMap<U>(cb: (value: T) => U | U[]): Chain<U>;
 
   toArray(): T[];
 
