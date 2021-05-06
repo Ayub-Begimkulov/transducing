@@ -1,6 +1,6 @@
 {
   "name": "transducing",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Simple helper to optimize iterations over arrays.",
   "source": "src/index.ts",
   "main": "./dist/index.js",
