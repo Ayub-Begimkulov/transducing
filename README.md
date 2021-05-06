@@ -26,8 +26,7 @@ const newArray = transduce(
 
 ## How does this work?
 
-It uses transducing under the hood. When you pass a function to one of the iteration methods (map, filter, flatMap),
-it creates new composed transformer, and when you call `toArray`, it will apply this transformer to each item in array.
+It uses transducing under the hood. It creates single composed transformer from the passed operations and applies this transformer to each item in array.
 
 If you are interested in this topic, there is a [good article](https://www.digitalocean.com/community/tutorials/javascript-functional-programming-explained-fusion-transduction)
 that explains it really well.
