@@ -1,4 +1,4 @@
-import { chain } from "..";
+import { chain } from "../old-test";
 
 describe("chain", () => {
   it("defined", () => {

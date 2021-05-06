@@ -1,4 +1,4 @@
-import compose from "./compose";
+import compose from "../compose";
 import { pushCombiner, flatPushCombiner, addCombiner } from "./combiners";
 import { isArray, id } from "./utils";
 
