@@ -20,6 +20,17 @@
   ],
   "author": "Ayub Begimkulov",
   "license": "MIT",
+  "files": [
+    "dist"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Ayub-Begimkulov/transducing"
+  },
+  "bugs": {
+    "url": "https://github.com/Ayub-Begimkulov/transducing/issues"
+  },
+  "homepage": "https://github.com/Ayub-Begimkulov/transducing#readme",
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "jest": "^26.6.3",
