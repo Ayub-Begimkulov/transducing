@@ -4,8 +4,6 @@ export function compose<F extends AnyFunction>(f: F): F;
 export function compose<R>(...funcs: AnyFunction[]): (...args: any[]) => R;
 export function compose(...funcs: AnyFunction[]) {
   switch (funcs.length) {
-    case 0:
-      return <T>(arg: T) => arg;
     case 1:
       return funcs[0];
     default:
