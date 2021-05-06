@@ -38,8 +38,6 @@ function filter<T, R extends T>(predicate: (val: T) => boolean) {
   };
 }
 
-// type RestTransducers<R> = [...Transducer<any, any>[], Transducer<any, R>]
-
 function transduce<A, R>(arr: A[], transducer: Transducer<A, R>): R[];
 function transduce<A, B, R>(
   arr: A[],
@@ -67,10 +65,6 @@ function transduce<A, B, C, D, E, R>(
   transducer4: Transducer<D, E>,
   transducer5: Transducer<E, R>
 ): R[];
-/* function transduce<A, R>(
-  arr: A[],
-  ...rest: RestTransducers<R>
-): R[]; */
 function transduce(arr: any[], ...transducers: Transducer<any, any>[]) {
   const reducer = compose<any>(...transducers)(pushCombiner);
   return arr.reduce(reducer, [] as any[]);

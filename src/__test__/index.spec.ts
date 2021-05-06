@@ -1,6 +1,6 @@
 import { transduce, filter, map, flatMap } from "..";
 
-describe("chain", () => {
+describe("transduce", () => {
   it("map", () => {
     const original = [1, 2, 3];
     const mapper = (v: number) => v + 1;

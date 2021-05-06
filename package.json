@@ -1,14 +1,22 @@
 {
-  "name": "deep-compare",
-  "version": "1.0.0",
-  "description": "",
+  "name": "transducing",
+  "version": "0.1.0",
+  "description": "Simple helper to optimize iterations over arrays.",
   "main": "index.js",
   "scripts": {
     "test": "jest"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": [
+    "transducing",
+    "transducers",
+    "functional programming",
+    "functional typescript",
+    "functional javascript",
+    "fp",
+    "optimizations"
+  ],
+  "author": "Ayub Begimkulov",
+  "license": "MIT",
   "devDependencies": {
     "@types/jest": "^26.0.23",
     "jest": "^26.6.3",
