@@ -5,19 +5,19 @@ Simple helper to optimize iterations over array.
 ```ts
 import { transduce, map, flatMap, filter } from "transducing";
 
-const arr = [1, 2, 3, 4, 5];
+const arr = [1, 2, 3, "asdf"];
+
+const isString = (val: unknown): val is string => typeof val === "string";
 
 // this code will make 3 iterations over array
 const newArray = arr
-  .map(x => x * x)
-  .filter(x => x > 5)
-  .flatMap(x => [x + 1]);
+  .filter(isString)
+  .map(v => [v])
+  .flatMap(v => v);
 
 // but this code will iterate over array only one time
-const isString = (val: unknown): val is string => typeof val === "string";
-
 const newArray = transduce(
-  [1, 2, 3, "asdf"],
+  arr,
   filter(isString),
   map(v => [v]),
   flatMap(v => v)
