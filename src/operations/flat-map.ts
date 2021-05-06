@@ -1,5 +1,5 @@
-import { ArrayCombiner } from "types";
-import { toArray } from "utils";
+import { ArrayCombiner } from "../types";
+import { toArray } from "../utils";
 
 export const flatMap = <T, R>(mapper: (val: T) => R | ReadonlyArray<R>) => (
   combiner: ArrayCombiner<R>

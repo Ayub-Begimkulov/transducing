@@ -1,4 +1,4 @@
-import { ArrayCombiner } from "types";
+import { ArrayCombiner } from "../types";
 
 export const map = <T, R>(mapper: (val: T) => R) => (
   combiner: ArrayCombiner<R>

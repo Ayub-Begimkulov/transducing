@@ -1,4 +1,4 @@
-import { ArrayCombiner, Transducer } from "types";
+import { ArrayCombiner, Transducer } from "../types";
 
 export function filter<T, R extends T>(
   predicate: (val: T) => val is R
