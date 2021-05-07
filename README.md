@@ -2,6 +2,18 @@
 
 Simple helper to optimize iterations over array.
 
+## Installation
+
+```shell
+# npm
+npm i transducing
+
+# yarn
+yarn add transducing
+```
+
+## Usage
+
 ```ts
 import { transduce, map, flatMap, filter } from "transducing";
 
@@ -30,3 +42,7 @@ It uses transducing under the hood. It creates single composed transformer from 
 
 If you are interested in this topic, there is a [good article](https://www.digitalocean.com/community/tutorials/javascript-functional-programming-explained-fusion-transduction)
 that explains it really well.
+
+## License
+
+[MIT](./LICENSE)
