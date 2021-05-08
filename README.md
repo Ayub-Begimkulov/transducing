@@ -1,5 +1,9 @@
 # Transducing
 
+[![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Ayub-Begimkulov/transducing/Test/master?label=CI&logo=github&style=flat-square)](https://github.com/Ayub-Begimkulov/ts-get-set/actions/workflows/main.yml)
+[![Codecov branch](https://img.shields.io/codecov/c/github/Ayub-Begimkulov/transducing/master?style=flat-square)](https://app.codecov.io/gh/Ayub-Begimkulov/transducing)
+[![GitHub](https://img.shields.io/github/license/Ayub-Begimkulov/transducing?style=flat-square)](https://github.com/Ayub-Begimkulov/transducing/blob/master/LICENSE)
+
 Simple helper to optimize iterations over array.
 
 ## Installation
@@ -19,7 +23,7 @@ import { transduce, map, flatMap, filter } from "transducing";
 
 const arr = [1, 2, 3, "asdf"];
 
-const isString = (val: unknown): val is string => typeof val === "string";
+const isString = val => typeof val === "string";
 
 // this code will make 3 iterations over array
 const newArray = arr
