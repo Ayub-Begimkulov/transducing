@@ -2,6 +2,8 @@
 
 [![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/Ayub-Begimkulov/transducing/Test/master?label=CI&logo=github&style=flat-square)](https://github.com/Ayub-Begimkulov/ts-get-set/actions/workflows/main.yml)
 [![Codecov branch](https://img.shields.io/codecov/c/github/Ayub-Begimkulov/transducing/master?style=flat-square)](https://app.codecov.io/gh/Ayub-Begimkulov/transducing)
+[![npm bundle size](https://img.shields.io/bundlephobia/minzip/transducing?style=flat-square)](https://bundlephobia.com/result?p=transducing@0.2.1)
+[![npm](https://img.shields.io/npm/v/transducing?style=flat-square)](https://www.npmjs.com/package/transducing)
 [![GitHub](https://img.shields.io/github/license/Ayub-Begimkulov/transducing?style=flat-square)](https://github.com/Ayub-Begimkulov/transducing/blob/master/LICENSE)
 
 Simple helper to optimize iterations over array.
