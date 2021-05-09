@@ -8,6 +8,13 @@
 
 Simple helper to optimize iterations over array.
 
+## Features
+
+- Optimized iterations over large arrays
+- Full TypeScript support
+- Small bundle size
+- Simple API that doesn't require any deep understanding of the functional programming
+
 ## Installation
 
 ```shell
@@ -40,6 +47,57 @@ const newArray = transduce(
   map(v => [v]),
   flatMap(v => v)
 );
+```
+
+## API
+
+### `transduce`
+
+Applies provided operations to array.
+
+Example:
+
+```ts
+transduce(
+  someArray,
+  map(v => v + 1),
+  filter(v => v > 5)
+);
+```
+
+### `map`
+
+Creates a high order map reducer that could be passed to `transduce`:
+
+```ts
+const mapper1 = map((x: number) => x + 5);
+const mapper2 = map((x: number) => [x]);
+
+transduce(someArray, mapper1, mapper2);
+```
+
+### `filter`
+
+Creates a high order filter reducer that could be passed to `transduce`:
+
+```ts
+const predicate1 = filter((x: number) => x > 5);
+const predicate2 = filter((x: number) => x < 15);
+
+transduce(someArray, predicate1, predicate2);
+```
+
+### `flatMap`
+
+Creates a high order flatMap reducer that could be passed to `transduce`:
+
+```ts
+const mapper1 = flatMap((x: number[]) => x);
+const mapper2 = flatMap((x: number) =>
+  Array.from({ length: x }, () => Math.random())
+);
+
+transduce(someArray, mapper1, mapper2);
 ```
 
 ## How does this work?
