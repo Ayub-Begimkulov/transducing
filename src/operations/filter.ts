@@ -1,13 +1,11 @@
-import { ArrayCombiner, Transducer } from "../types";
+import { ArrayCombiner, Predicate, Transducer, TypePredicate } from "../types";
 
 export function filter<T, R extends T>(
-  predicate: (val: T) => val is R
+  predicate: TypePredicate<T, R>
 ): Transducer<T, R>;
-export function filter<T, R extends T>(
-  predicate: (val: T) => boolean
-): Transducer<T, R>;
-export function filter<T, R extends T>(predicate: (val: T) => boolean) {
-  return (combiner: ArrayCombiner<R>) => (acc: R[], c: T) => {
-    return predicate(c) ? combiner(acc, c as R) : acc;
+export function filter<T>(predicate: Predicate<T>): Transducer<T, T>;
+export function filter<T>(predicate: Predicate<T>) {
+  return (combiner: ArrayCombiner<T>) => (acc: T[], c: T) => {
+    return predicate(c) ? combiner(acc, c) : acc;
   };
 }
