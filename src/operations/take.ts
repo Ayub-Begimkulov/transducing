@@ -18,7 +18,7 @@ export function takeUntil<T, R extends T>(
       exit();
       return acc;
     }
-    return combiner(acc, c);
+    return combiner(acc, c, exit);
   };
 }
 
@@ -31,19 +31,18 @@ export function takeWhile<T, R extends T>(
 ) {
   return (combiner: ArrayCombiner<T>) => (acc: T[], c: T, exit: () => void) => {
     if (predicate(c)) {
-      return combiner(acc, c);
+      return combiner(acc, c, exit);
     }
     exit();
     return acc;
   };
 }
 
-export const take = <T>(n: number) => (combiner: ArrayCombiner<T>) => (
-  acc: T[],
-  c: T,
-  exit: () => void
-) => {
-  if (acc.length < n) return combiner(acc, c);
-  exit();
-  return acc;
-};
+export const take =
+  <T>(n: number) =>
+  (combiner: ArrayCombiner<T>) =>
+  (acc: T[], c: T, exit: () => void) => {
+    if (acc.length < n) return combiner(acc, c, exit);
+    exit();
+    return acc;
+  };

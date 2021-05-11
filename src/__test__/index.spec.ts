@@ -81,10 +81,6 @@ describe("transduce", () => {
       .flatMap(v => v);
     expect(result).toEqual(expected);
   });
+
+  it.todo("correctly passes additional arguments into combiner");
 });
-
-const isString = (v: unknown): v is string => typeof v === "string";
-const isNumber = (v: boolean): v is boolean => typeof v === "string";
-
-const result = transduce([1, 2, "adsf", 3, "asdf"], takeUntil(isString));
-const result2 = transduce([1, 2, "adsf", 3, "asdf"], takeWhile(isString));
