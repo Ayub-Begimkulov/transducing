@@ -61,7 +61,8 @@ Example:
 transduce(
   someArray,
   map(v => v + 1),
-  filter(v => v > 5)
+  filter(v => v > 5),
+  take(10)
 );
 ```
 
@@ -96,6 +97,38 @@ const mapper1 = map(x => [x]);
 const mapper2 = flatMap((x: number[]) => x);
 
 transduce([1, 2, 3], mapper1, mapper2); // [1, 2, 3]
+```
+
+## `take`
+
+Create a take reducer that will stop iterating after array reached a length of `n`:
+
+```ts
+const mapper = map(x => x + 1);
+
+transduce([1, 2, 3], mapper1, take(2)); // [2, 3]
+```
+
+## `takeUntil`
+
+Create a take reducer that will stop iterating after passed `predicate` returns `true`:
+
+```ts
+const mapper = map(x => x + 1);
+const isString = v => typeof v === "string";
+
+transduce([1, 2, 3, "asdf", 6], takeUntil(isString), mapper); // [2, 3, 4]
+```
+
+## `takeWhile`
+
+Create a take reducer that will take elements while passed `predicate` succeeds:
+
+```ts
+const mapper = map(x => x + 1);
+const isNumber = v => typeof v === "number";
+
+transduce([1, 2, 3, "asdf", 6], takeWhile(isNumber), mapper); // [2, 3, 4]
 ```
 
 ## How does this work?
