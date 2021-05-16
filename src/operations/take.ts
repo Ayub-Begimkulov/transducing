@@ -29,13 +29,7 @@ export function takeWhile<T>(predicate: Predicate<T>): Transducer<T, T>;
 export function takeWhile<T, R extends T>(
   predicate: Predicate<T> | TypePredicate<T, R>
 ) {
-  return (combiner: ArrayCombiner<T>) => (acc: T[], c: T, exit: () => void) => {
-    if (predicate(c)) {
-      return combiner(acc, c, exit);
-    }
-    exit();
-    return acc;
-  };
+  return takeUntil((v: T) => !predicate(v));
 }
 
 export const take =
