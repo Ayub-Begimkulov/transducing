@@ -73,7 +73,7 @@ Creates a high order map reducer that could be passed to `transduce`:
 const mapper1 = map((x: number) => x + 5);
 const mapper2 = map((x: number) => [x]);
 
-transduce(someArray, mapper1, mapper2);
+transduce([1, 2, 3], mapper1, mapper2); // [[6], [7], [8]]
 ```
 
 ### `filter`
@@ -84,7 +84,7 @@ Creates a high order filter reducer that could be passed to `transduce`:
 const predicate1 = filter((x: number) => x > 5);
 const predicate2 = filter((x: number) => x < 15);
 
-transduce(someArray, predicate1, predicate2);
+transduce([1, 6, 8, 16], predicate1, predicate2); // [6, 8]
 ```
 
 ### `flatMap`
@@ -92,12 +92,10 @@ transduce(someArray, predicate1, predicate2);
 Creates a high order flatMap reducer that could be passed to `transduce`:
 
 ```ts
-const mapper1 = flatMap((x: number[]) => x);
-const mapper2 = flatMap((x: number) =>
-  Array.from({ length: x }, () => Math.random())
-);
+const mapper1 = map(x => [x]);
+const mapper2 = flatMap((x: number[]) => x);
 
-transduce(someArray, mapper1, mapper2);
+transduce([1, 2, 3], mapper1, mapper2); // [1, 2, 3]
 ```
 
 ## How does this work?
