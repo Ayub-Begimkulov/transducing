@@ -54,10 +54,7 @@ export function transduce<A, B, C, D, E, F, G, R>(
   transducer7: Transducer<NoInfer<G>, R>
 ): R[];
 export function transduce(arr: any[], ...transducers: Transducer<any, any>[]) {
-  const reducer = compose.apply<null, any[], any>(
-    null,
-    transducers
-  )(pushCombiner);
+  const reducer = compose.apply(null, transducers)(pushCombiner);
   const result: unknown[] = [];
   let exited = false;
   const exit = () => (exited = true);
