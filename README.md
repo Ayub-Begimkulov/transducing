@@ -99,7 +99,7 @@ const mapper2 = flatMap((x: number[]) => x);
 transduce([1, 2, 3], mapper1, mapper2); // [1, 2, 3]
 ```
 
-## `take`
+### `take`
 
 Create a take reducer that will stop iterating after array reached a length of `n`:
 
@@ -109,7 +109,7 @@ const mapper = map(x => x + 1);
 transduce([1, 2, 3], mapper1, take(2)); // [2, 3]
 ```
 
-## `takeUntil`
+### `takeUntil`
 
 Create a take reducer that will stop iterating after passed `predicate` returns `true`:
 
@@ -120,7 +120,7 @@ const isString = v => typeof v === "string";
 transduce([1, 2, 3, "asdf", 6], takeUntil(isString), mapper); // [2, 3, 4]
 ```
 
-## `takeWhile`
+### `takeWhile`
 
 Create a take reducer that will take elements while passed `predicate` succeeds:
 
